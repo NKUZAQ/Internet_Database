@@ -8,11 +8,11 @@
 
    ssh key: `16834/.ssh/id_rsa.pub`
 
-   ![image-20211104211840888](C:/Users/16834/Desktop/%E9%A1%B9%E7%9B%AE%E5%86%85%E5%AE%B9/image-20211104211840888.png)
+   ![image-20211104211840888](image-20211104211840888.png)
 
    githubDesktop
 
-   **项目管理工具：**飞书+QQ群
+   项目管理工具：飞书+QQ群
 
 4. 需求文档
 
@@ -47,7 +47,7 @@ https://www.51qianduan.com/temp/18715.html
 
 ## 数据库
 
-### 1 Olympic history data
+### 1 Olympic history data zaq
 
 https://www.kaggle.com/heesoo37/olympic-history-data-a-thorough-analysis/report
 
