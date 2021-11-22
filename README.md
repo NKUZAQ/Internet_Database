@@ -87,3 +87,9 @@ https://www.kaggle.com/the-guardian/olympic-games
 - 夏季/冬季
   - 年份、城市、运动种类、运动类型、运动员、国家、性别、项目名称、奖牌
 
+### 5 2021 tokyo country medal zaq
+
+https://www.kaggle.com/stefanzivanov/olympic-games-2021-medals?select=Tokyo+2021+dataset+v4.csv
+
+排名，队伍，金牌，银牌，铜牌，总数，州
+
