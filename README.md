@@ -57,3 +57,8 @@ https://www.kaggle.com/heesoo37/olympic-history-data-a-thorough-analysis/report
   - 姓名、性别、年龄、身高、体重、国家、参加的场次
 - 参赛国家
 
+### 2 Summer medal zaq
+
+1976到2008
+
+举办的城市、年份、运动类型、项目大类、项目名称、运动员、性别、国家、奖牌
