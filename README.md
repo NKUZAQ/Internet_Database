@@ -59,6 +59,20 @@ https://www.kaggle.com/heesoo37/olympic-history-data-a-thorough-analysis/report
 
 ### 2 Summer medal zaq
 
+https://www.kaggle.com/divyansh22/summer-olympics-medals?select=Summer-Olympic-medals-1976-to-2008.csv
+
 1976到2008
 
 举办的城市、年份、运动类型、项目大类、项目名称、运动员、性别、国家、奖牌
+
+### 3 2016 Rio zaq
+
+https://www.kaggle.com/rio2016/olympic-games
+
+- 运动员
+  - id、姓名、国籍、性别、生日、身高、体重、运动、金牌数、银牌数、铜牌数
+- 国家
+  - 国家、代码、人口、GDP
+- 项目
+  - id、运动种类、项目分类、项目名称、性别、场地
+
