@@ -47,25 +47,7 @@ https://www.51qianduan.com/temp/18715.html
 
 ## 数据库
 
-### 1 Olympic history data zaq
-
-https://www.kaggle.com/heesoo37/olympic-history-data-a-thorough-analysis/report
-
-120年以来
-
-- 运动员
-  - 姓名、性别、年龄、身高、体重、国家、参加的场次
-- 参赛国家
-
-### 2 Summer medal zaq
-
-https://www.kaggle.com/divyansh22/summer-olympics-medals?select=Summer-Olympic-medals-1976-to-2008.csv
-
-1976到2008
-
-举办的城市、年份、运动类型、项目大类、项目名称、运动员、性别、国家、奖牌
-
-### 3 2016 Rio zaq
+### 1 2016 Rio zaq
 
 https://www.kaggle.com/rio2016/olympic-games
 
@@ -76,7 +58,7 @@ https://www.kaggle.com/rio2016/olympic-games
 - 项目
   - id、运动种类、项目分类、项目名称、性别、场地
 
-### 4 Sports and Medals zaq
+### 2 Sports and Medals zaq
 
 https://www.kaggle.com/the-guardian/olympic-games
 
@@ -87,7 +69,7 @@ https://www.kaggle.com/the-guardian/olympic-games
 - 夏季/冬季
   - 年份、城市、运动种类、运动类型、运动员、国家、性别、项目名称、奖牌
 
-### 5 2021 tokyo country medal zaq
+### 3 2021 tokyo country medal zaq
 
 https://www.kaggle.com/stefanzivanov/olympic-games-2021-medals?select=Tokyo+2021+dataset+v4.csv
 
