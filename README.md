@@ -64,8 +64,7 @@ https://www.kaggle.com/the-guardian/olympic-games
 
 1896-2014
 
-- 国家
-  - 国家、国家代码、人口、GDP
+- 国家（因为与上面一个重复，删去）
 - 夏季/冬季
   - 年份、城市、运动种类、运动类型、运动员、国家、性别、项目名称、奖牌
 
@@ -74,4 +73,19 @@ https://www.kaggle.com/the-guardian/olympic-games
 https://www.kaggle.com/stefanzivanov/olympic-games-2021-medals?select=Tokyo+2021+dataset+v4.csv
 
 排名，队伍，金牌，银牌，铜牌，总数，州
+
+# week4
+
+- 前端连上数据库、模板如何展现出数据 
+- 后端增删改查、后端的界面
+- 数据库表的设计
+- 找一些夺金照片
+- 把模板里不需要的模块删掉 
+- 
+
+
+
+
+
+
 
