@@ -83,9 +83,9 @@ https://www.kaggle.com/stefanzivanov/olympic-games-2021-medals?select=Tokyo+2021
 - 把模板里不需要的模块删掉 
 - 
 
+# 11.26
 
-
-
+确认最终文档和代码分工
 
 
 
