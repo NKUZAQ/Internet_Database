@@ -22,7 +22,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','team','contact'],
+                        'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
@@ -63,7 +63,6 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-
     /**
      * Login action.
      *
@@ -71,9 +70,9 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
+        /*if (!Yii::$app->user->isGuest) {
             return $this->goHome();
-        }
+        }*/
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
@@ -81,7 +80,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
 
-            return $this->render('login', [
+            return $this->renderpartial('login', [
                 'model' => $model,
             ]);
         }
@@ -97,24 +96,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * Displays contact.
-     *
-     * @return string
-     */
-    public function actionContact()
-    {
-        return $this->render('contact');
-    }
-    /**
-     * Displays team.
-     *
-     * @return string
-     */
-    public function actionTeam()
-    {
-        return $this->render('team');
     }
 }

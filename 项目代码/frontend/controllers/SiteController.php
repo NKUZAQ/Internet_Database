@@ -1,4 +1,6 @@
 <?php
+	
+
 namespace frontend\controllers;
 
 use frontend\models\ResendVerificationEmailForm;
@@ -15,6 +17,9 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Athletes;
+use frontend\models\DataOlympicPastwinter;
+use frontend\models\DataOlympicPastsummer;
+use yii\helpers\ArrayHelper;
 
 use app\models\EntryForm;
 use yii\data\Pagination;
@@ -71,6 +76,8 @@ class SiteController extends Controller
             ],
         ];
     }
+    
+    
 
     /**
      * Displays homepage.
@@ -150,6 +157,36 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    /**
+     * Displays detail1 page.
+     *
+     * @return mixed
+     */
+    public function actionDetail1()
+    {
+        return $this->render('detail1');
+    }
+
+    /**
+     * Displays detail2 page.
+     *
+     * @return mixed
+     */
+    public function actionDetail2()
+    {
+        return $this->render('detail2');
+    }
+    /**
+     * Displays detail3 page.
+     *
+     * @return mixed
+     */
+    public function actionDetail3()
+    {
+        return $this->render('detail3');
+    }
+
     /**
      * Displays medal page.
      *
@@ -186,6 +223,13 @@ class SiteController extends Controller
     {
         // 这里是athletes
         $query = Athletes::find();
+        $all = Athletes::find()->asArray()->all();
+        $id = ArrayHelper::getColumn($all,'id');
+        $weight = ArrayHelper::getColumn($all,'weight');
+        $height = ArrayHelper::getColumn($all,'height');
+        //$mcount = Athletes::findBySql('SELECT sport,sex, COUNT(*) FROM `athletes` WHERE sex='male' AND ( sport= 'volleyball' OR sport= 'athletics' OR sport= 'boxing' OR sport= 'table tennis' OR sport= 'cycling' OR sport='gymnastics' OR sport='aquatics')GROUP BY sport,sex')->all();
+        //$male = ArrayHelper::getColumn($mcount,'COUNT(*)');
+        $sportss = Athletes::findBySql('SELECT sport, COUNT(*) FROM `athletes`GROUP BY sport')->all();
 
         $pagination = new Pagination([
             'defaultPageSize' => 10,
@@ -197,10 +241,16 @@ class SiteController extends Controller
             ->limit($pagination->limit)
             ->all();
 
+
         return $this->render('athlete', [
             'athletes' => $athletes,
             'pagination' => $pagination,
+            'id' =>$id,
+            'weight' =>$weight,
+            'height' =>$height,
+
         ]);
+
     }
 
     /**
@@ -215,15 +265,43 @@ class SiteController extends Controller
 
     /**
      * Displays before page.
-     *
+     * 往年数据
+     * 郑梦瑶
      * @return mixed
      */
     public function actionBefore()
     {
-        return $this->render('before');
+    	//冬奥会奖牌榜
+    	$pastwinters=DataOlympicPastwinter::findBySql('select country_code,sum(gold) as gold_total,sum(silver) as silver_total,sum(bronze) as bronze_total
+														from data_olympic_pastwinter
+														GROUP BY country_code
+														order by gold_total desc')
+														->asArray()->all();
+        $countrycode=ArrayHelper::getColumn($pastwinters,'country_code');
+        $gold=ArrayHelper::getColumn($pastwinters,'gold_total');
+        $silver=ArrayHelper::getColumn($pastwinters,'silver_total');
+        $bronze=ArrayHelper::getColumn($pastwinters,'bronze_total');
+        //举办国家次数
+        $citys=DataOlympicPastsummer::findBySql('select host_country,count(host_country) as city_times from 
+        	( select host_country from data_olympic_pastsummer group by year )a group by host_country having city_times>1')->asArray()->all();
+		$cityname=ArrayHelper::getColumn($citys,'host_country');
+        $citytime=ArrayHelper::getColumn($citys,'city_times');
+        //夏季奖牌总数榜
+        $summerall=DataOlympicPastsummer::findBySql('select country_name,sum(gold+silver+bronze) as medal_total from data_olympic_pastsummer GROUP BY country_name')
+        									->asArray()->all();
+        $medalnum=ArrayHelper::getColumn($summerall,'medal_total');
+        $countryname=ArrayHelper::getColumn($summerall,'country_name');
+        return $this->render('before',[
+        	'countrycode'=>$countrycode,
+        	'gold'=>$gold,
+        	'silver'=>$silver,
+        	'bronze'=>$bronze,   
+        	'cityname'=>$cityname,
+        	'citytime'=>$citytime,	
+        	'countryname'=>$countryname,
+        	'medalnum'=>$medalnum,
+        ]);
     }
-
-
     /**
      * Displays winter page.
      *

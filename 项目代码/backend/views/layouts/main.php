@@ -1,10 +1,5 @@
 <?php
-/**
-*  Team: TB2020, NKU
-*  Coding by Jia-lin Dong 1811349, 20200608
-*/
-/* @var $this \yii\web\View */
-/* @var $content string */
+/*1911574  王玉娇*/
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
@@ -114,7 +109,7 @@ AppAsset::register($this);
 
 				<!-- 查看留言 开始 -->
 				<li>
-					<a href="?r=site/contact">
+					<a href="?r=olym-comment/index">
 						<i class="icon-comment-stroke"></i>
 						<span class="menu-item">查看游客留言</span>
 					</a>
@@ -123,7 +118,7 @@ AppAsset::register($this);
 
 				<!-- 发布/修改团队信息 开始 -->
 				<li>
-					<a href="?r=site/team">					
+					<a href="?r=olym-team-info/index">					
 						<i class="icon-add-user"></i>
 						<span class="menu-item">修改团队信息</span>
 					</a>
@@ -132,7 +127,7 @@ AppAsset::register($this);
 
 				<!-- 退出 开始 -->
 				<li>
-					<a href="http://localhost/4/frontend/web/">
+					<a href="http://localhost:4430/advanced/frontend/web/">
 						<i class="icon-power"></i>
 						<span class="menu-item">退出</span>
 					</a>

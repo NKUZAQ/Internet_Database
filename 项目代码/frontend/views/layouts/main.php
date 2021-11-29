@@ -1,7 +1,5 @@
 <?php
 /**
-*  Team: TB2020, NKU
-*  Coding by Jia-lin Dong 1811349, 20200608
 */
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -22,6 +20,9 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		<script src="https://www.runoob.com/static/js/wonderland.js"></script>
+		
 		<!-- <meta charset="UTF-8" /> -->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +85,7 @@ AppAsset::register($this);
 		<header>
 
 			<!-- Logo starts -->
-			<a href="index.html" class="logo">
+			<a href="?r=site/index" class="logo">
 				<img src="../assets/img/logo.png" alt="Olympics Logo" />
 			</a> 
 			<!-- Logo ends -->
@@ -168,14 +169,14 @@ AppAsset::register($this);
 					</a>
 					<ul>
 						<li><a href='?r=site/about'>团队信息</a></li>
-						<li><a href='?r=site/contact'>联系我们</a></li>
+						<li><a href='?r=olym-comment/contact'>联系我们</a></li>
 					</ul>
 				</li>
 				<!-- 开发团队 结束 -->
 
 				<!-- 后台登录 开始 -->
 				<li>
-					<a href="http://localhost/4/backend/web">
+					<a href="http://localhost:4430/advanced/backend/web/?r=site/login">
 						<i class="icon-users"></i>
 						<span class="menu-item">后台登录</span>
 					</a>

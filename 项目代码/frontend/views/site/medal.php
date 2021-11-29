@@ -1,171 +1,95 @@
-<h1>medal</h1>
-			<div class="container-fluid">
+<?php
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
+use frontend\models\TokyoRank;
 
-				<!-- Top Bar Starts -->
-				<div class="top-bar clearfix">
-					<div class="row gutter">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="page-title">
-								<h3>C3 Graphs</h3>
-								<p>Custom C3 Graphs / Graphs / <a href="index.html">Home</a></p>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<ul class="right-stats" id="mini-nav-right">
-								<li>
-									<a href="javascript:void(0)" class="btn btn-danger"><span>76</span>Sales</a>
-								</li>
-								<li>
-									<a href="tasks.html" class="btn btn-success">
-										<span>18</span>Tasks</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)" class="btn btn-info"><i class="icon-download6"></i> Export</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Top Bar Ends -->
 
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Line Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="lineGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Stacked Bar Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="stackedBarGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
+/**
+ * Team: 写的都对, NKU
+ * Coding by ZhouAnQi 1911590, 20211127
+ * 参赛队奖牌统计
+ */
 
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Scatter Plot</h4>
-							</div>
-							<div class="panel-body">
-								<div id="scatterPlot" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Step Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="stepGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
+$this->title = '参赛队奖牌统计';
+$this->params['breadcrumbs'][] = $this->title;
+?>
 
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">spline Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="splineGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Line Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="barAreaGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
+<!-- Container fluid Starts -->
+<div class="container-fluid">
 
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Bar Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="barGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
+    <!-- Top Bar Starts -->
+    <div class="top-bar clearfix">
+        <div class="row gutter">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="page-title">
+                    <h3>参赛队奖牌统计</h3>
+                    <p><a href="?r=site/index">首页</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar Ends -->
+    <!-- Row start -->
+    <div class="row gutter">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <h4>参赛队奖牌表（按照金牌排序）</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover no-margin">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Team</th>
+                                    <th>Gold</th>
+                                    <th>Silver</th>
+                                    <th>Bronze</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Pie Chart</h4>
-							</div>
-							<div class="panel-body">
-								<div id="pieChart" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Donut Chart</h4>
-							</div>
-							<div class="panel-body">
-								<div id="donutChart" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<div class="panel height2">
-							<div class="panel-heading">
-								<h4 class="panel-title">Area Spline Graph</h4>
-							</div>
-							<div class="panel-body">
-								<div id="areaSplineGraph" class="chart-height1"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
-				
-				<!-- Row starts -->
-				<div class="row gutter">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="panel">
-							<div class="panel-heading">
-								<h4>Server Requests</h4>
-							</div>
-							<div class="panel-body no-padding">
-								<div id="serverRequests" class="chart-height4"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Row ends -->
+                                <?php
+                                $rank=TokyoRank::find()
+                                    ->select(['Rank','Team','Gold','Silver','Bronze','Total'])
+                                    ->asArray()
+                                    ->orderBy('rank',SORT_DESC)
+                                    ->all();
 
-			</div>
+                                    $tmp=0;
+                                    foreach($rank as $i){
+                                        if($tmp==0){
+                                            echo '<tr class="danger">';
+                                        }elseif($tmp==1){
+                                            echo '<tr class="info">';
+                                        }elseif($tmp==2){
+                                            echo '<tr class="warning">';
+                                        }else{
+                                            echo "<tr>";
+                                        }
+                                        foreach($i as $j){
+                                            echo "<td>";
+
+                                            echo $j;
+                                            echo "</td>";
+                                        }
+                                        echo "</tr>";
+                                        $tmp=$tmp+1;
+
+                                    }
+                                    ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row ends -->       
+
+</div>
+<!-- Container fluid ends -->
+
